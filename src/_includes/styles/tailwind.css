@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .change {
+    color: transparent;
+  }
+}
+
+html body {
+  min-height: 100vh;
+}

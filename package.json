@@ -1,0 +1,33 @@
+{
+  "name": "sample-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel start:eleventy start:tailwind",
+    "start:eleventy": "eleventy --serve",
+    "start:tailwind": "tailwindcss -i src/_includes/styles/tailwind.css -o dist/style.css --watch",
+    "build": "npm-run-all build:tailwind build:eleventy",
+    "build:talwind": "tailwindcss -i src/_includes/styles/tailwind.css -o dist/style.css",
+    "build:eleventy": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/direnakkocdemir/sample-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/direnakkocdemir/sample-website/issues"
+  },
+  "homepage": "https://github.com/direnakkocdemir/sample-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.2",
+    "tailwindcss": "^3.0.24"
+  }
+}

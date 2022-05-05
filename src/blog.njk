@@ -3,47 +3,45 @@ layout: base.njk
 title: blog
 pagination: 
   data: collections.post
-  size: 2
+  size: 4
   alias: blog
 ---
-<div>
- <div class= " flex justify-center text-gray-600 mt-10">
-  <ul>
-  {% for post in blog %}
-    <li>
-      <strong>
-        <a href="{{post.url}}">{{post.data.title}}</a>
-      </strong>
-      <span>
-        {{post.data.description}}
-      </span>
-    </li>
-  {% endfor %}
-  </ul>
-  <ul>
-  </div>
-    {# {% if pagination.pageNumber > 0 %}
-        <li><a href="{{pagination.href.first}}">First</a></li>
-    {% endif %} #}
 
-    <div class="text-blue-400 flex justify-end">
-    {% if pagination.href.previous %}
-      <a href="{{ pagination.href.previous }}" class="mr-5">Previous</a>
-    {% endif %}
 
-    {% for href in pagination.hrefs %}
-      {%if loop.index0 !== pagination.pageNumber %}
-       <a href="{{href}}" class="mr-5">Page {{ loop.index }}</a>
-      {% endif %}
-    {% endfor %}  
-
-    {% if pagination.href.next %}
-      <a href="{{ pagination.href.next }}" class="mr-5" >Next</a>
-    {% endif %}
+  <div>
+  <div class= " flex justify-center text-gray-600">
+    <ul class="flex flex-col  m-10">
+    {% for post in blog %}
+      <li>
+          <a class="text text-black-800 w-10 font-bold bg-blue-200 hover:bg-blue-400
+          " href="{{post.url}}"><br>{{post.data.title}} <br></a>
+          <span class="flex-1 text-gray-700 text-center">
+            {{post.templateContent | striptags(true) | truncate(500) }}
+          </span>
+        <br>
+        <strong>
+        <a href="{{post.url}}">Read more on</a>
+        </strong>
+        <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+      </li>
+    {% endfor %}
+    </ul>
+    <ul>
     </div>
-    
-    {# {% if pagination.pageNumber < pagination.pages.length - 1 %}
-        <li><a href="{{pagination.href.last}}">Last</a></li>
-    {% endif %} #}
-  </ul>
-</div>
+      <div class="text-blue-400 flex justify-end">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="mr-5">Previous</a>
+      {% endif %}
+
+      {% for href in pagination.hrefs %}
+        {%if loop.index0 !== pagination.pageNumber %}
+        <a href="{{href}}" class="mr-5">Page {{ loop.index }}</a>
+        {% endif %}
+      {% endfor %}  
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="mr-5" >Next</a>
+      {% endif %}
+      </div>
+    </ul>
+  </div>

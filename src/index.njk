@@ -10,7 +10,7 @@
           <h3 class="text-pink-600 text-3xl lg:text-4xl font-bold leading-normal lg:leading-loose">
             Hi there !!!
           </h3>  
-          <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge.</h2>
+          <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
           <img class="grid justify-items-end h-40 mb-6"
             src="/static/avatar.png" alt="Cury hair avatar">
           {# <ul >
@@ -29,6 +29,12 @@
         </div>  
   </div>
     {# {% include "blog.njk" %} #}
- 
+    {# {% block body %}
+      
+     {% block blog_content %}
+       {{ content | safe }}
+      {% endblock blog_content %} 
+     {% endblock body %}
+  #}
   </body>
   {% endblock body_content%}

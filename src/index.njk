@@ -1,40 +1,39 @@
 {% extends 'base.njk' %}
 
 {% block body_content %}
-<body >
-  <div class="w-fulll h-full bg-no-repeat bg-cover" 
-  style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"> 
-    <div class="max-w-3xl min-h-screen mx-auto p-6">
-      <div class="grid place-items-start h-screen bg-fized">
-        <div class="my-6 w-full">
-          <h3 class="text-pink-600 text-3xl lg:text-4xl font-bold leading-normal lg:leading-loose">
-            Hi there !!!
-          </h3>  
-          <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
-          <img class="grid justify-items-end h-40 mb-6"
-            src="/static/avatar.png" alt="Cury hair avatar">
-          {# <ul >
-          {% for info in collections.info %}
-            <li> <a href="{{ info.url }}">{{ info.data.title }}</a></li>
+
+  <body >
+    <div class="w-screen h-screen bg-no-repeat bg-cover" 
+    style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"> 
+      <div class=" p-10">
+        <div class="place-items-start bg-fized p-6">
+            <h3 class="text-pink-600 text-3xl font-bold py-5 ">
+              Hi there !!!
+            </h3>  
+            <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
+            <img class="grid justify-items-end h-40 mb-6 py-2"
+              src="/static/avatar.png" alt="Cury hair avatar">
+            {# <ul >
+            {% for info in collections.info %}s
+              <li> <a href="{{ info.url }}">{{ info.data.title }}</a></li>
+            {% endfor %}
+          </ul>
+          <a href="/contact">Go to contact page</a> #}
+          {# <ul>
+          {% for item in posts %}
+            <li> {{item.title}} </li>
           {% endfor %}
-        </ul>
-         <a href="/contact">Go to contact page</a> #}
-         {# <ul>
-         {% for item in posts %}
-           <li> {{item.title}} </li>
-         {% endfor %}
-         </ul> #}
+          </ul> #}
             </div>
-          </div>
-        </div>  
-  </div>
-    {# {% include "blog.njk" %} #}
-    {# {% block body %}
-      
-     {% block blog_content %}
-       {{ content | safe }}
-      {% endblock blog_content %} 
-     {% endblock body %}
-  #}
-  </body>
+          </div>  
+    </div>
+      {# {% include "blog.njk" %} #}
+      {# {% block body %}
+        
+      {% block blog_content %}
+        {{ content | safe }}
+        {% endblock blog_content %} 
+      {% endblock body %}
+    #}
+    </body>
   {% endblock body_content%}

@@ -3,13 +3,13 @@ layout: base.njk
 title: work
 ---
 
-<div class="container py-8 px-8">
+<div class="flex px-8">
   <h1 class="text-center text-5xl">Everything is about {{ title }}.</h1>
-  <section class="text-left text-md px-10 py-10 mr-10">
+  <div class="text-left text-md px-10 py-10 mr-10">
     <ul >
         {% for info in collections.info %}
           <li> <a href="{{ info.url }}">{{ info.data.title }}</a></li>
         {% endfor %}
       </ul>
+  </div>
 </div>
-</section>

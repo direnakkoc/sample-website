@@ -7,10 +7,10 @@ pagination:
   alias: blog
 ---
 
-
+  {# {% from "base.njk" import track with context %} #}
   <div>
   <div class= " flex justify-center text-gray-600">
-    <ul class="flex flex-col  m-10">
+    <ul class="flex flex-col p-2-0 m-10">
     {% for post in blog %}
       <li>
           <a class="text text-black-800 w-10 font-bold bg-blue-200 hover:bg-blue-400

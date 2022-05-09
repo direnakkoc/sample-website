@@ -4,19 +4,12 @@ layout: base.njk
 ---
 
 
-<main class="container py-8">
-    <h1 class="text-center text-5xl">{{ site.title  }}</h1>
-    <section class="text-gray-700 body-font">
-            <div class="container flex flex-col items-center px-5 py-16 mx-auto lg:px-20 lg:py-36 md:flex-row">
-                {# <div class="w-5/6 mb-10 lg:max-w-lg lg:w-full md:w-1/2 md:mb-0">
-                    <img class="object-center max-w-xs	 mb-6 rounded" alt="me" src="./_includes/static/avatar.png">
-                </div> #}
-                <div
-                    class="flex flex-col items-center text-center lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
-                    <p class="mb-2 text-base leading-relaxed text-center text-gray-700 lg:text-left lg:text-xl">
-                        "Something something something."</p>
-
-                </div>
-            </div>
-        </section>
-  </main>
+<div class="flex justify-center py-8">
+  <h1 class="text-center text-5xl">{{ site.title  }}</h1>
+    <div class="text-gray-700 body-font">
+      <div class="flex flex-row items-end lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
+        <p class="mb-2 text-base leading-relaxed text-center text-gray-700 lg:text-left lg:text-xl">
+         "Something something something."</p>
+      </div>
+    </div>
+  </div>

@@ -1,39 +1,69 @@
+---
+title: blog
+pagination: 
+  data: collections.post
+  size: 4
+  alias: blog
+---
+
 {% extends 'base.njk' %}
 
 {% block body_content %}
 
   <body >
-    <div class="w-screen h-screen bg-no-repeat bg-cover" 
-    style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"> 
-      <div class=" p-10">
-        <div class="place-items-start bg-fized p-6">
+  <div class="Grid grid-rows-2 gap-10">
+    <div class="">
+    <div class="px-6 w-screen h-2/6 bg-no-repeat" 
+    style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
             <h3 class="text-pink-600 text-3xl font-bold py-5 ">
               Hi there !!!
             </h3>  
             <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
             <img class="grid justify-items-end h-40 mb-6 py-2"
               src="/static/avatar.png" alt="Cury hair avatar">
-            {# <ul >
-            {% for info in collections.info %}s
-              <li> <a href="{{ info.url }}">{{ info.data.title }}</a></li>
-            {% endfor %}
-          </ul>
-          <a href="/contact">Go to contact page</a> #}
-          {# <ul>
-          {% for item in posts %}
-            <li> {{item.title}} </li>
-          {% endfor %}
-          </ul> #}
-            </div>
-          </div>  
     </div>
-      {# {% include "blog.njk" %} #}
-      {# {% block body %}
-        
-      {% block blog_content %}
-        {{ content | safe }}
-        {% endblock blog_content %} 
-      {% endblock body %}
-    #}
+    </div>
+
+    <div class="">
+    <div class=" px-6 mt-auto mx-auto w-screen">
+      <div class= "justify-center text-gray-600">
+        <ul class="p-2-0 m-10">
+        {% for post in blog %}
+          <li>
+              <a class="text text-black-800 w-10 font-bold bg-blue-200 hover:bg-blue-400
+              " href="{{post.url}}"><br>{{post.data.title}} <br></a>
+              <span class="flex-1 text-gray-700 text-center">
+                {{post.templateContent | striptags(true) | truncate(500) }}
+              </span>
+            <br>
+            <strong>
+            <a href="{{post.url}}">Read more on</a>
+            </strong>
+            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+          </li>
+        {% endfor %}
+        </ul>
+        <ul>
+      </div>
+        <div class="text-blue-400 flex justify-end">
+          {% if pagination.href.previous %}
+            <a href="{{ pagination.href.previous }}" class="mr-5">Previous</a>
+          {% endif %}
+
+          {% for href in pagination.hrefs %}
+            {%if loop.index0 !== pagination.pageNumber %}
+            <a href="{{href}}" class="mr-5">Page {{ loop.index }}</a>
+            {% endif %}
+          {% endfor %}  
+
+          {% if pagination.href.next %}
+            <a href="{{ pagination.href.next }}" class="mr-5" >Next</a>
+          {% endif %}
+        </div>
+      </ul>
+    </div>
+    </div>
+
+  </div>
     </body>
   {% endblock body_content%}

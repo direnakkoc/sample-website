@@ -11,57 +11,71 @@ pagination:
 {% block body_content %}
 
   <body >
-  <div class="Grid grid-rows-2 gap-10">
-    <div class="">
-    <div class="px-6 w-screen h-2/6 bg-no-repeat" 
-    style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-            <h3 class="text-pink-600 text-3xl font-bold py-5 ">
-              Hi there !!!
-            </h3>  
-            <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
-            <img class="grid justify-items-end h-40 mb-6 py-2"
-              src="/static/avatar.png" alt="Cury hair avatar">
-    </div>
-    </div>
-
-    <div class="">
-    <div class=" px-6 mt-auto mx-auto w-screen">
-      <div class= "justify-center text-gray-600">
-        <ul class="p-2-0 m-10">
-        {% for post in blog %}
-          <li>
-              <a class="text text-black-800 w-10 font-bold bg-blue-200 hover:bg-blue-400
-              " href="{{post.url}}"><br>{{post.data.title}} <br></a>
-              <span class="flex-1 text-gray-700 text-center">
-                {{post.templateContent | striptags(true) | truncate(500) }}
-              </span>
-            <br>
-            <strong>
-            <a href="{{post.url}}">Read more on</a>
-            </strong>
-            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-          </li>
-        {% endfor %}
-        </ul>
-        <ul>
+  <div class="grid grid-rows-3 gap-0">
+    <div class="row-span-1">
+      <div class="px-10 w-screen h-full bg-no-repeat" 
+      style="background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+              <h3 class="text-pink-600 text-3xl font-bold py-5 ">
+                Hi there !!!
+              </h3>  
+              <h2 class="text-gray-800 text-md"> I am eager to increase my analytical skills and Cloud Technologies knowledge. </h2>
+              <img class="grid justify-items-end h-40 mb-6 py-2"
+                src="/static/avatar.png" alt="Curly hair avatar">
       </div>
-        <div class="text-blue-400 flex justify-end">
-          {% if pagination.href.previous %}
-            <a href="{{ pagination.href.previous }}" class="mr-5">Previous</a>
-          {% endif %}
-
-          {% for href in pagination.hrefs %}
-            {%if loop.index0 !== pagination.pageNumber %}
-            <a href="{{href}}" class="mr-5">Page {{ loop.index }}</a>
-            {% endif %}
-          {% endfor %}  
-
-          {% if pagination.href.next %}
-            <a href="{{ pagination.href.next }}" class="mr-5" >Next</a>
-          {% endif %}
-        </div>
-      </ul>
     </div>
+
+    <div class="row-span-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+       <div class="md:order-last col-span-1">
+        <div class="flex items-center justify-center lg:justify-end ">
+          <div class="border-4 rounded-md m-5 text-blue-800 content-center md:content-start">
+          <h1> Lorem laborum doloribus sit quisquam excepturi quis voluptatibus nemo. Maiores  iusto molestiae voluptates vero, similique, corrupti reiciendis velit obcaecati deleniti, sunt eveniet ea? Facere, maxime. Sequi maiores, dolorum cum optio ex deleniti! Tempore, facilis. Recusandae numquam nesciunt laborum impedit commodi corporis, sunt ipsam, sequi, magni laboriosam quia reiciendis placeat minima cum molestiae cumque at temporibus quisquam natus voluptatem quaerat assumenda voluptatum! Officia magni voluptatem culpa blanditiis ipsam tenetur rerum voluptas distinctio, pariatur praesentium corporis aliquam nisi ullam vero. Cupiditate nostrum quas molestias sit ullam possimus explicabo expedita fuga voluptatibus qui dolore voluptatum blanditiis sint id delectus eum animi dicta nesciunt numquam neque, tempora ex, magni ratione. Doloribus.
+            </h1>
+          </div>
+        </div>
+     </div>
+
+      <div class="col-span-2">
+      <div class=" px-6 mt-auto mx-auto flex items-center justify-center md:justify-start ">
+        <div class= " text-gray-600">
+          <ul class="p-2-0">
+          {% for post in blog %}
+            <li>
+                <a class="text text-black-800 w-10 font-bold bg-blue-200 hover:bg-blue-400
+                " href="{{post.url}}"><br>{{post.data.title}} <br></a>
+                <span class="flex-1 text-gray-700 text-center">
+                  {{post.templateContent | striptags(true) | truncate(500) }}
+                </span>
+              <br>
+              <strong>
+              <a href="{{post.url}}">Read more on</a>
+              </strong>
+              <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+            </li>
+          {% endfor %}
+          </ul>
+          <ul>
+        </div>
+        </div>
+          <div class="text-blue-400 flex place-items-end justify-end ">
+            {% if pagination.href.previous %}
+              <a href="{{ pagination.href.previous }}" class="mr-5">Previous</a>
+            {% endif %}
+
+            {% for href in pagination.hrefs %}
+              {%if loop.index0 !== pagination.pageNumber %}
+              <a href="{{href}}" class="mr-5">Page {{ loop.index }}</a>
+              {% endif %}
+            {% endfor %}  
+
+            {% if pagination.href.next %}
+              <a href="{{ pagination.href.next }}" class="mr-5" >Next</a>
+            {% endif %} 
+        </ul>
+      </div>
+      </div>
+
+      </div>
     </div>
 
   </div>

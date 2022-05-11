@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body class="bg-gray-300 flex flex-col min-h-screen">
- {# {% include "header.njk" %} #}
+ {% include "header.njk" %}
   <header class="m-5">
     <span class="flex"><img class="h-6" src="/static/calendar2.png" alt="calendar"><time  datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time></span> 
     <p class="flex h-10">Published by <img class="h-7" src="{{ featuredImage | url }}" alt="me">{{author}} </p>
@@ -20,6 +20,6 @@
             {{ content | safe }}
         {% endblock body %}
       </main>
-{# {% include "footer.njk" %} #}
+{% include "footer.njk" %}
 </body>
 </html>
